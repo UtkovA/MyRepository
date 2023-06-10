@@ -9,7 +9,7 @@ Real estate listings for apartments in St. Petersburg and Leningrad Oblast from 
 
 :pencil: Full EDA and visulization -> [EDA_and_visualization.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
 
-:pencil: Building a model -> [https://github.com/UtkovA/e2e_project/blob/main/building_model.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
+:pencil: Building a model -> [Building_model.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
  
 1. The dataset was analyzed with basic statistical tools and visualization
 2. Cleaning
@@ -34,15 +34,15 @@ sell_df_cleaned = sell_df_cleaned[(sell_df_cleaned['area'] < 342)]
 ```
 
 Before cleaning:\
-![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png =250x)
 
 After cleaning:\
-![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png =400x)
 
 Basic graphs:
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_1.png)
 
-Correlation matrix:\
+Correlation:\
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_4.png)
 
 3. Preprocessing
@@ -80,10 +80,10 @@ The result is following:
 <h3> :computer: Virtual environment, Docker and Postman </h3>
 
 The next steps was about virtual connection and setting up prediction model not on local server:
-1. To create "virtual machine" using Yandex.Cloud
-2. To create Flask project
-3. To connect Flask project with github repository
-4. To run code on remote machine\
+6. To create "virtual machine" using Yandex.Cloud
+7. To create Flask project and pickle files with the model and scalers
+8. To connect Flask project with github repository
+9. To run code on remote machine\
 To do it we specified a port in a script <app.py> which is running on our virtual machine and open the port:
 ```
 if __name__ == '__main__':
@@ -92,17 +92,17 @@ if __name__ == '__main__':
 sudo apt install ufw
 sudo ufw allow 5444 
 ```	
-5. To check connection using postman (Show predicted price based on parameters)
-6. To install docker on "Virtual machine" and then to set up it
-7. To set up virtual environment on the "virtual machine"
+10. To check connection using postman (Show predicted price based on parameters)
+11. To install docker on "Virtual machine" and then to set up it
+12. To set up virtual environment on the "virtual machine"
 ```
 sudo apt install python3.8-venv
 python3 -m venv env
 ```
-8. To install libraries on our virtual environment
-9. To set up requrements files\
+13. To install libraries on our virtual environment
+14. To set up requrements files\
 This file helps to download all necessary libraries
-10. To create Dockerfile
+15. To create Dockerfile
 ```
 FROM ubuntu:20.04
 MAINTAINER Alexander Utkov
@@ -113,17 +113,17 @@ RUN apt install -y python3-pip
 RUN pip3 install -r requirements.txt
 CMD python3 app.py
 ```
-11. To create Docker image
+16. To create Docker image
 ```
 docker build -t utkova/e2e_test:v.0.1 . #Names and versions are different for each user
 docker images  # Show all Docker images
 ```
-11. To run our model using Docker
+17. To run our model using Docker
 ```
 docker run --network host -d utkova/e2e_test:v.0.1 #Names and versions are different for each user
 ```
-12. To check the connetction using Postman
-13.To push Docker image to DockerHub
+18. To check the connetction using Postman
+19.To push Docker image to DockerHub
 ```
 docker push utkova/e2e_test:v.0.1 #Names and versions are different for each user
 ```
