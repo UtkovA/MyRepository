@@ -79,10 +79,10 @@ The result is following:
 
 <h3> :computer: Virtual environment, Docker and Postman </h3>
 
-The next steps was about virtual connection and setting up prediction model not on local server:
-6. To create "virtual machine" using Yandex.Cloud
-7. To create Flask project and pickle files with the model and scalers
-8. To connect Flask project with github repository
+The next steps was about virtual connection and setting up prediction model not on local server:\
+6. To create "virtual machine" using Yandex.Cloud\
+7. To create Flask project and pickle files with the model and scalers\
+8. To connect Flask project with github repository\
 9. To run code on remote machine\
 To do it we specified a port in a script <app.py> which is running on our virtual machine and open the port:
 ```
