@@ -1,15 +1,15 @@
-<h2> 🌃 :house: Analyzing Real Estate Data in St. Petersburg </h2>
-<h3> 📙 Data source: </h3>
+<h2> :house: Analyzing Real Estate Data in St. Petersburg </h2>
+<h3> :mortar_board: Data source: </h3>
 
 The [dataset](https://github.com/UtkovA/e2e_project/blob/main/spb.real.estate.archive.sample5000.tsv) is taken from [Yandex.Realty](https://realty.yandex.ru)
 
-**Description of the dataset:**
+:notebook_with_decorative_cover: **Description of the dataset:**
 
 Real estate listings for apartments in St. Petersburg and Leningrad Oblast from 2016 till the middle of August 2018.
 
-Full EDA and visulization -> [EDA_and_visualization.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
+:pencil: Full EDA and visulization -> [EDA_and_visualization.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
 
-Building a model -> [https://github.com/UtkovA/e2e_project/blob/main/building_model.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
+:pencil: Building a model -> [https://github.com/UtkovA/e2e_project/blob/main/building_model.ipynb](https://github.com/UtkovA/e2e_project/blob/main/EDA_and_visualization.ipynb)
  
 1. The dataset was analyzed with basic statistical tools and visualization
 2. Cleaning
@@ -74,10 +74,10 @@ The result is following:
     - MAPE = 0.206
     - Accuracy = 0.709
 - Test
-    - MAPE = 0.231
-    - Accuracy = 0.584
+    - MAPE = 0.216
+    - Accuracy = 0.647
 
-<h3> Virtual environment, Docker and Postman </h3>
+<h3> :computer: Virtual environment, Docker and Postman </h3>
 
 The next steps was about virtual connection and setting up prediction model not on local server:
 1. To create "virtual machine" using Yandex.Cloud
@@ -128,7 +128,7 @@ docker run --network host -d utkova/e2e_test:v.0.1 #Names and versions are diffe
 docker push utkova/e2e_test:v.0.1 #Names and versions are different for each user
 ```
 
-<h3> Conclusion </h3>
+<h3> :rocket: Conclusion </h3>
 THe whole process helps to understand how to run your model or your code using virtual environment and machines and show the basis steps which is used by majority of companies aroud the world. 
 
 Made by:\
