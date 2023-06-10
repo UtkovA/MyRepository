@@ -34,16 +34,16 @@ sell_df_cleaned = sell_df_cleaned[(sell_df_cleaned['area'] < 342)]
 ```
 
 Before cleaning:
-![alt text](https://github.com/olgaselesnjova/E2E/blob/main/images/1.JPG)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png)
 
 After cleaning:
-![alt text](https://github.com/olgaselesnjova/E2E/blob/main/images/1.JPG)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png)
 
 Basic graphs:
-![alt text](https://github.com/olgaselesnjova/E2E/blob/main/images/1.JPG)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_1.png)
 
 Correlation matrix:
-![alt text](https://github.com/olgaselesnjova/E2E/blob/main/images/1.JPG)
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_4.png)
 
 3. Preprocessing
 Data was preprocessed using mapper:
@@ -56,12 +56,13 @@ mapper = DataFrameMapper([([feature], SimpleImputer()) for feature in numeric_fe
 4. Scalers were used 
 StandardScaler() is used to transform data to common format.
 5. Building model and tuning hyperparameters
-Different models were used and different parameters were tested to find the best bodel. The best result was shown by XGBregressor. 
+Different models were used and different parameters were tested to find the best bodel. The best result was shown by XGBregressor.
+
 Also, pipeline was used to combine all steps
 ```
 pipeline = Pipeline(steps = [('preprocessing', mapper), 
                              ('scaler', StandardScaler()),
-                             ('xgb', xgb.XGBRegresso (objective="reg:linear", random_state=42))])
+                             ('xgb', xgb.XGBRegressor (objective="reg:linear", random_state=42))])
 ```	
 The result is following:
 - Train
@@ -73,40 +74,59 @@ The result is following:
 
 *For next steps RandomForestRegressor is used
 
-
-<h3> 💻 How to install instructions and run the web-app with virtual environment </h3>
-	
-<h3> 📎 Information about Dockerfile </h3>
-
-The **Dockerfile** starts with the Ubuntu 20.04 base image. The MAINTAINER command sets the author information for the image. 
-- Then, the RUN command is used to update the package list on the Ubuntu image. 
-- The COPY command is used to copy the content of the current directory to the /opt/gsom_predictor directory inside the Docker container. 
-- The WORKDIR command sets the working directory inside the container as /opt/gsom_predictor. 
-- The next RUN command installs the pip3 package manager for Python 3. 
-- The final RUN command installs the dependencies listed in requirements.txt file using pip3. 
-- The CMD command runs the app.py file using Python 3 inside the container.
-	
-<h3> ⚙️ How to open the port in a remote VM </h3>
-	
-We specify the port in a flask app in the script **app.py** by setting 
+The next steps was about virtual connection and setting up prediction model not on local server:
+1. To create "virtual machine" using Yandex.Cloud
+2. To create Flask project
+3. To connect Flask project with github repository
+4. To run code on remote machine
+To do it we specified a port in a script <app.py> which is running on our virtual machine and open the port:
 ```
 if __name__ == '__main__':
     app.run(debug = True, port = 5444, host = '0.0.0.0')
-```
-To open the remote VM port of our web application we need to use these lines:
-```
+
 sudo apt install ufw
 sudo ufw allow 5444 
+```	
+5. To check connection using postman (Show predicted price based on parameters)
+6. To install docker on "Virtual machine" and then to set up it
+7. To set up virtual environment on the "virtual machine"
 ```
-After that we can use applications such as **Postman** to check how our requests for API work.  
+sudo apt install python3.8-venv
+python3 -m venv env
+```
+8. To install libraries on our virtual environment
+9. To set up requrements files which will help to download all necessary libraries
+10. To create Dockerfile
+```
+FROM ubuntu:20.04
+MAINTAINER Alexander Utkov
+RUN apt-get update -y
+COPY . /opt/gsom_predictor
+WORKDIR /opt/gsom_predictor
+RUN apt install -y python3-pip
+RUN pip3 install -r requirements.txt
+CMD python3 app.py
+11. To create Docker image
+```
+8. To install libraries on our virtual environment
+9. To set up requrements files which will help to download all necessary libraries
+10. To create Dockerfile
+```
+docker build -t utkova/e2e_test:v.0.1 . #Names and versions are different for each user
+docker images  # Show all Docker images
+```
+11. To run our model using Docker
+```
+docker run --network host -d utkova/e2e_test:v.0.1 #Names and versions are different for each user
+```
+12. To check the connetction using Postman
+13.To push Docker image to DockerHub
+```
+docker push utkova/e2e_test:v.0.1 #Names and versions are different for each user
+```
 
-<h3> ⚓ How to run app using docker and which port it uses </h3>
+</h3> Conclusion </h3>
+THe whole process helps to understand how to run your model or your code using virtual environment and machines and show the basis steps which is used by majority of companies aroud the world. 
 
-Firstly we need to build containers and then run them: 
-```
-docker build -t <your login>/<directory name>:<version> .      # example: "docker build -t olgaselesnjova/e2e23:v.0.1 ."
-docker run --network host -it <your login>/<directory name>:<version> /bin/bash
-docker run --network host -d <your login>/<directory name>:<version>   
-docker ps     # to show all running containers and info about them
-docker stop <container name>    # from the list after docker ps
-```
+Made by:
+**Utkov Alexander**
