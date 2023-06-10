@@ -130,6 +130,6 @@ docker push utkova/e2e_test:v.0.1 #Names and versions are different for each use
 
 <h3> :rocket: Conclusion </h3>
 THe whole process helps to understand how to run your model or your code using virtual environment and machines and show the basis steps which is used by majority of companies aroud the world. 
-
+\
 Made by:\
 **Utkov Alexander**
