@@ -73,7 +73,7 @@ The result is following:
     - MAPE = 0.231
     - Accuracy = 0.584
 
-</h3> Virtual environment, Docker and Postman </h3>
+<h3> Virtual environment, Docker and Postman </h3>
 
 The next steps was about virtual connection and setting up prediction model not on local server:
 1. To create "virtual machine" using Yandex.Cloud
@@ -108,6 +108,7 @@ WORKDIR /opt/gsom_predictor
 RUN apt install -y python3-pip
 RUN pip3 install -r requirements.txt
 CMD python3 app.py
+```
 11. To create Docker image
 ```
 docker build -t utkova/e2e_test:v.0.1 . #Names and versions are different for each user
@@ -123,7 +124,7 @@ docker run --network host -d utkova/e2e_test:v.0.1 #Names and versions are diffe
 docker push utkova/e2e_test:v.0.1 #Names and versions are different for each user
 ```
 
-</h3> Conclusion </h3>
+<h3> Conclusion </h3>
 THe whole process helps to understand how to run your model or your code using virtual environment and machines and show the basis steps which is used by majority of companies aroud the world. 
 
 Made by:
