@@ -1,4 +1,4 @@
-<h2> 🌃 Analyzing Real Estate Data in St. Petersburg </h2>
+<h2> 🌃 :house: Analyzing Real Estate Data in St. Petersburg </h2>
 <h3> 📙 Data source: </h3>
 
 The [dataset](https://github.com/UtkovA/e2e_project/blob/main/spb.real.estate.archive.sample5000.tsv) is taken from [Yandex.Realty](https://realty.yandex.ru)
@@ -58,6 +58,10 @@ mapper = DataFrameMapper([([feature], SimpleImputer()) for feature in numeric_fe
 StandardScaler() is used to transform data to common format.
 5. Building model and tuning hyperparameters\
 Different models were used and different parameters were tested to find the best bodel. The best result was shown by XGBregressor.
+```
+grid_search.best_params_
+{'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 450}
+```
 
 Also, pipeline was used to combine all steps
 ```
@@ -127,5 +131,5 @@ docker push utkova/e2e_test:v.0.1 #Names and versions are different for each use
 <h3> Conclusion </h3>
 THe whole process helps to understand how to run your model or your code using virtual environment and machines and show the basis steps which is used by majority of companies aroud the world. 
 
-Made by:
+Made by:\
 **Utkov Alexander**
