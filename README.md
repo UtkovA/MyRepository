@@ -34,10 +34,10 @@ sell_df_cleaned = sell_df_cleaned[(sell_df_cleaned['area'] < 342)]
 ```
 
 Before cleaning:\
-![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png){ width=50% }
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png) { width: 200px; }
 
 After cleaning:\
-![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png){ width=200% }
+![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png) { width: 400px; }
 
 Basic graphs:
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_1.png)
