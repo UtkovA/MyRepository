@@ -33,19 +33,20 @@ sell_df_cleaned = sell_df_cleaned[(sell_df_cleaned['kitchen_area'] < 67)]
 sell_df_cleaned = sell_df_cleaned[(sell_df_cleaned['area'] < 342)]
 ```
 
-Before cleaning:
+Before cleaning:\
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_2.png)
 
-After cleaning:
+After cleaning:\
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_3.png)
 
 Basic graphs:
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_1.png)
 
-Correlation matrix:
+Correlation matrix:\
 ![alt text](https://github.com/UtkovA/e2e_project/blob/main/images/e2e_4.png)
 
 3. Preprocessing
+
 Data was preprocessed using mapper:
 ```
 mapper = DataFrameMapper([([feature], SimpleImputer()) for feature in numeric_features] +\
@@ -53,9 +54,9 @@ mapper = DataFrameMapper([([feature], SimpleImputer()) for feature in numeric_fe
                              df_out=True)
 ```	
 
-4. Scalers were used 
+4. Scalers were used\
 StandardScaler() is used to transform data to common format.
-5. Building model and tuning hyperparameters
+5. Building model and tuning hyperparameters\
 Different models were used and different parameters were tested to find the best bodel. The best result was shown by XGBregressor.
 
 Also, pipeline was used to combine all steps
@@ -72,13 +73,13 @@ The result is following:
     - MAPE = 0.231
     - Accuracy = 0.584
 
-*For next steps RandomForestRegressor is used
+</h3> Virtual environment, Docker and Postman </h3>
 
 The next steps was about virtual connection and setting up prediction model not on local server:
 1. To create "virtual machine" using Yandex.Cloud
 2. To create Flask project
 3. To connect Flask project with github repository
-4. To run code on remote machine
+4. To run code on remote machine\
 To do it we specified a port in a script <app.py> which is running on our virtual machine and open the port:
 ```
 if __name__ == '__main__':
@@ -95,7 +96,8 @@ sudo apt install python3.8-venv
 python3 -m venv env
 ```
 8. To install libraries on our virtual environment
-9. To set up requrements files which will help to download all necessary libraries
+9. To set up requrements files\
+This file helps to download all necessary libraries
 10. To create Dockerfile
 ```
 FROM ubuntu:20.04
@@ -107,10 +109,6 @@ RUN apt install -y python3-pip
 RUN pip3 install -r requirements.txt
 CMD python3 app.py
 11. To create Docker image
-```
-8. To install libraries on our virtual environment
-9. To set up requrements files which will help to download all necessary libraries
-10. To create Dockerfile
 ```
 docker build -t utkova/e2e_test:v.0.1 . #Names and versions are different for each user
 docker images  # Show all Docker images
